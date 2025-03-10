@@ -94,17 +94,8 @@ button{
 .sliders{
   display: block;
   margin: auto;
-
-
-
   height:380px;
   width: 900px;
-
-
-
-  
-
-  
 }
 .last-class{
   display: flex;
@@ -127,10 +118,6 @@ nav a.active-link{
   text-decoration: underline;
   color: rgb(255, 255, 255);
 }
-
-
-
-
 .mainslide{
   display:block;
 
