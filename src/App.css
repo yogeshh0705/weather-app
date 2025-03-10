@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+.container{
+
+  background-color: rgba(33, 34, 34, 0.822);
+  height: 90vh;
+  width: 85vw;
+  margin: auto;
+  margin-top: 4rem;
+  overflow:scroll;
+  color:rgb(255, 255, 255);
+  font-family: "Poppins";
+
+}
+.header{
+  display: flex;
+  gap: 15rem;
+
+}
+
+h1{
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+nav{
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 14rem;
+  padding-top:4rem;
+}
+
+
+
+#sunlogo{
+  padding: .2rem;
+  height: 40px;
+  width: 40px;
+  display: block; 
+}
+.logoclass{
+  padding: .8rem;
+
+  display: flex;
+
+}
+.degree-switch{
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: row;
+  gap: .4rem;
+
+
+}
+h4{
+  margin-top:0;
+}
+
+.cards{
+  text-align: right;
+  margin: 3px;
+  width: 20rem;
+  border: brown ridge 2px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+.card-collection{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input{
+  align-self: center;
+  display: block;
+  margin: auto;
+  height: 80%;
+  width: 30%;
+  padding: .8rem;
+  border-radius: 1rem;
+  background-image: url(https://ibb.co/QFkbXYmp); 
+}
+
+.slide-card{
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+}
+button{
+  margin-top: 3rem;
+}
+
+.sliders{
+  display: block;
+  margin: auto;
+
+
+
+  height:380px;
+  width: 900px;
+
+
+
+  
+
+  
+}
+.last-class{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80vw;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+nav a{
+  color: white;
+  text-decoration: none;
+}
+nav a:hover{
+  color: rgb(99, 104, 104);
+}
+nav a.active-link{
+  font-weight: bold;
+  text-decoration: underline;
+  color: rgb(255, 255, 255);
+}
+
+
+
+
+.mainslide{
+  display:block;
+
+}
+.slidebtn{
+  display: flex;
+  width: 20px;
+
+}
+
+
