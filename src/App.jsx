@@ -2,7 +2,7 @@
   import React from 'react'
   import reactDOM from "react-dom"
   import './App.css'
-  import {BrowserRouter, NavLink, Route,Routes, UNSAFE_NavigationContext} from "react-router-dom"
+  import {BrowserRouter, NavLink, Route,Routes, UNSAFE_NavigationContext, useNavigation} from "react-router-dom"
   import Today from './routes/Today'
   import Tomorrow from './routes/Tomorrow'
   import Monthly from './routes/Monthly'
@@ -18,8 +18,10 @@
   import "slick-carousel/slick/slick.css";
   import "slick-carousel/slick/slick-theme.css";
   import Slider from "react-slick";
-import Smallcard from './components/Smallcard'
-import 'typeface-poppins'
+  import Smallcard from './components/Smallcard'
+  import 'typeface-poppins'
+  import { useNavigate } from 'react-router-dom'
+
 
 
 
@@ -47,7 +49,20 @@ import 'typeface-poppins'
 
 
 
+
   function App() {
+
+    const apiKey ='cc05ba7a2eeb118bdd9cd01d9f8bbacb';
+    const apiUrl ='https://api.openweathermap.org/data/2.5/weather';
+
+    async function checkWeather() {
+      const response =await fetch(`${apiUrl}?q=${query}&appid=${apiKey}&units=metric`);
+      var data =await response.json();
+
+      console.log(data);
+      
+      
+    }
 
 
     const slideRef=useRef();
@@ -67,6 +82,7 @@ import 'typeface-poppins'
 
 
     const [query,SetQuery] = useState("");
+
 
     const date=new Date();
     const showTime=date.getHours()
@@ -95,7 +111,8 @@ import 'typeface-poppins'
         <div className='header'>
         <div className='logoclass'>
             <img src={sun} alt="logo"  id='sunlogo'/>
-            <h1>Weather app</h1>
+            
+           Weather app
             
 
 
@@ -104,7 +121,7 @@ import 'typeface-poppins'
         <div className='tabs'>
         <BrowserRouter>
 
-  <nav>
+  <nav className='navbar'>
     <NavLink to="/td" className={({isActive}) => (isActive ? "active-link": "")}> Today</NavLink>
     <NavLink to="/tm" className={({isActive}) => (isActive ? "active-link": "")}> Tomorrow</NavLink>
     <NavLink to="/mt" className={({isActive}) => (isActive ? "active-link": "")}> Monthly</NavLink>
@@ -119,54 +136,24 @@ import 'typeface-poppins'
 
         </div>
         </div>
-        <h4 style={{paddingLeft:'19rem'}}>{showTime}</h4>
+        <h4  className='timer'>{showTime}</h4>
 
         <div className='degree-switch'>
-        <h4>°F</h4><SwitchLabels/>
+        <h4 className='faren'>°F</h4><SwitchLabels/>
         </div>
-        <div>
-          <input type="search" placeholder='search location here...'  
+        <div className='searching'>
+          <input type="search" className='inpi' placeholder='search location here...'  id='city_input'
           onChange={(e)=> SetQuery(e.target.value)} 
           value={query}/>
+          <button id='searchBTN' onClick={checkWeather}> search</button>
           { <div className='card-collection'>
 
-          {/* { 
-          Data.length && Data.filter((location)=>{
-            if(query==""){
-              return location;
-            }
-            else if(location.country.toLocaleLowerCase().includes(query.toLocaleLowerCase())){
-              return location;
-            }
-          }).map((location)=>(
-              <div className='cards' key={location.country}>
-
-                <h3>{location.country}</h3>
-                </div>
-              ))
-          } */}
-
+         
           </div> }
 
           </div>
 
-          {/* <div className='slide-card'>
-
-          <Side/>
-          <button id='left-btn'>
-          <img src="https://i.ibb.co/Wv4Bt3cs/back.png" /> 
-          </button>
-
-
-          <Maincard/>
-
-          <button id='left-btn'>
-          <img src="https://i.ibb.co/LX6WLYMf/right.png"  /> 
-          </button>
-
-          <Side/>
-
-          </div> */}
+ 
           <div className='sliders'>
             
 
@@ -176,8 +163,8 @@ import 'typeface-poppins'
 
             
             
-            <Maincard></Maincard>
-            <Maincard>
+            <Maincard query={query}> </Maincard>
+            <Maincard query={query}>
               
             </Maincard>
         
@@ -206,6 +193,7 @@ import 'typeface-poppins'
 
           </div>
 
+
          
 
           </div>
@@ -217,5 +205,6 @@ import 'typeface-poppins'
 
     
   }
+  
 
   export default App

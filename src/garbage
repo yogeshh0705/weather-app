@@ -1,0 +1,36 @@
+ {/* { 
+          Data.length && Data.filter((location)=>{
+            if(query==""){
+              return location;
+            }
+            else if(location.country.toLocaleLowerCase().includes(query.toLocaleLowerCase())){
+              return location;
+            }
+          }).map((location)=>(
+              <div className='cards' key={location.country}>
+
+                <h3>{location.country}</h3>
+                </div>
+              ))
+          } */}
+
+
+
+
+          {/* <div className='slide-card'>
+
+            <Side/>
+            <button id='left-btn'>
+            <img src="https://i.ibb.co/Wv4Bt3cs/back.png" /> 
+            </button>
+  
+  
+            <Maincard/>
+  
+            <button id='left-btn'>
+            <img src="https://i.ibb.co/LX6WLYMf/right.png"  /> 
+            </button>
+  
+            <Side/>
+  
+            </div> */}
