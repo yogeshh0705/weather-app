@@ -35,9 +35,10 @@
             .then(data => {
                 setTemperature(data.main.temp);
                 setHumidity(data.main.humidity);
-                setAirPressure(data.weather[0].description);
+                setAirPressure(data.weather[0].description  );
                 setWind(data.wind.speed);
                 setcityName(data.name);
+
             })
             .catch(error => console.error('Error fetching weather data:', error));
     }, [query]);
@@ -63,12 +64,12 @@
         <div className='container-1'>
           <div id='first'>
 
-          <div className='top'> <h2 className='cityname'>{cityName}</h2> <img src="https://i.ibb.co/QvLssbTk/placeholder.png" alt="placeholder" border="0" id='locat' className='locatt'></img></div>
+          <div className='top'> <h2 className='cityname'>{cityName !== null ? `${cityName}` : '--'}</h2> <img src="https://i.ibb.co/QvLssbTk/placeholder.png" alt="placeholder" border="0" id='locat' className='locatt'></img></div>
           </div>
 
           <div className='mid-content'>
             <img src="https://i.ibb.co/PGgX6z5v/clouds.png" ></img>
-              <h2 className='mtemp'>{temperature} °C</h2> 
+              <h2 className='mtemp'>{temperature !== null ? `${temperature}°C` : '--'} </h2> 
             
           <img src="https://i.ibb.co/h1TqzRh3/termomether.png" id='gauge'></img>
           </div>

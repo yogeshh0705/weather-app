@@ -82,6 +82,16 @@
 
 
     const [query,SetQuery] = useState("");
+    const [inputValue, setInputValue] = useState("");
+
+    const handleInputChange=(e)=>{
+      setInputValue(e.target.value);
+    }
+    const handleSearchClick=()=>{
+      SetQuery(inputValue);
+      checkWeather();
+
+    }
 
 
     const date=new Date();
@@ -143,9 +153,8 @@
         </div>
         <div className='searching'>
           <input type="search" className='inpi' placeholder='search location here...'  id='city_input'
-          onChange={(e)=> SetQuery(e.target.value)} 
-          value={query}/>
-          <button id='searchBTN' onClick={checkWeather}> search</button>
+          onChange={handleInputChange}          value={inputValue}/>
+          <button id='searchBTN' onClick={handleSearchClick}> search</button>
           { <div className='card-collection'>
 
          
